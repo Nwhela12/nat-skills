@@ -22,6 +22,22 @@ The person will say "make me a study guide." That is not the brief. Ask, in thei
 - How will they **use** it? In the car, on a phone, in a waiting room five minutes before?
   That decides audio vs. text, and phone-first vs. laptop.
 
+- **What form do the sources take?** A file they own (ebook, PDF, slide deck, handbook), or
+  nothing but what is on the web? NotebookLM needs something to chew on, and the answer changes
+  the whole source list. Three cases:
+  - **They own a file** — that is the best source there is. It goes in whole.
+  - **Audio only, or they took it in by ear** — there is no file. Feed published recaps, wikis,
+    reviews and summaries instead. This is what the *Fourth Wing* guide ran on, and it was enough.
+  - **Nothing yet** — go find the recaps yourself before writing the prompt.
+
+**Watch for a scope mismatch.** People answer with what they have read, not with what they will be
+tested on. If someone says "book one only" and the event covers two, say so once, plainly, then
+build what they asked for. Their reading being behind is usually the reason the guide exists.
+
+**"I've heard the names but never seen them written"** deserves its own note. Anyone who listened
+rather than read knows the story cold and cannot spell a single name. For them the page opens with
+names — spelled, with pronunciation — before any plot at all.
+
 Write the source list and the NotebookLM prompt out of those answers, not out of the topic.
 
 ## Step 2 — Hand off to NotebookLM (this step has human hands in it)
