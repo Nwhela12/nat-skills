@@ -10,7 +10,7 @@ skill still read fine as plain English; you can follow them by hand.
 ## Install
 
 ```
-/plugin marketplace add natwalstead-letsgitit/nat-skills
+/plugin marketplace add Nwhela12/nat-skills
 /plugin install cram-sheet@nat-skills
 ```
 
