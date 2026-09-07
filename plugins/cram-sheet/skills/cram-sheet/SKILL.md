@@ -40,12 +40,30 @@ names — spelled, with pronunciation — before any plot at all.
 
 Write the source list and the NotebookLM prompt out of those answers, not out of the topic.
 
-## Step 2 — Hand off to NotebookLM (this step has human hands in it)
+## Step 2 — Build and deploy the page FIRST. The page is the source.
+
+**This is the step everyone gets backwards, including me.** Do not write a "source pack" file and
+hand it over. Do the research, build the whole written page — names, vocabulary, who's who, the
+family tree, the section per unit, the mix-ups, the self-quiz — and **deploy it**. Then give the
+person the live URL.
+
+Because the thing they paste into NotebookLM is **that URL**. NotebookLM takes a website as a
+source, and the page you just built is a single clean, deduplicated, contradiction-resolved
+document on exactly the right subject. It is a far better source than the pile of recaps you built
+it from, and there is no file for anyone to go hunting for.
+
+Confirmed twice — *Fourth Wing* and *Quicksilver* — both times Nat pasted the deployed page in and
+nothing else. The Sources panel shows one entry with a globe icon.
+
+So the page ships in two passes: **all the words first**, then the audio gets wired in afterwards
+(Step 4). It is live and useful after this step even if the person never opens NotebookLM.
+
+## Step 3 — Hand off to NotebookLM (this step has human hands in it)
 
 **You cannot drive NotebookLM.** No API, and notebooks are not Drive files, so no token
-reaches them. Hand the person a prompt and a source list; they paste and click.
+reaches them. Give the person the deployed URL; they paste and click.
 
-Ask them to generate, then download:
+Ask them to add the URL as a source, then generate and download:
 
 | Studio item | Download? |
 |---|---|
@@ -54,6 +72,9 @@ Ask them to generate, then download:
 | Reports (e.g. a dossier) | Yes — exports as PDF |
 | Data tables | Yes — exports to Google Sheets (readable via her token) |
 | Mind map, flashcards, quiz | **No download exists.** Interactive only — link to them instead |
+
+**On the video overview:** skip it unless they want it. On a paid NotebookLM plan it costs the
+person nothing extra, so it is their call — but it is slow, and the page is complete without it.
 
 Files land in `~/Downloads`, which you can read directly. "Hit download, say done" — no
 filename needed.
@@ -65,7 +86,7 @@ account. A signed-out visitor always lands on a Google sign-in, even when the sh
 correct — so **never diagnose the share with curl**, and never tell them to re-click Save on
 the strength of one. The real test is an incognito window.
 
-## Step 3 — Re-encode before hosting
+## Step 4 — Re-encode, then wire the audio into the page
 
 NotebookLM ships audio at 256kbps stereo. It drops ~4x with no perceptible cost for two
 people talking:
@@ -77,7 +98,7 @@ ffmpeg -i in.m4a -ac 1 -c:a aac -b:a 64k out.m4a
 Fourth Wing went 40MB→11, 79MB→21, and the video 51MB→22. A phone on venue wifi is the
 target, so this is not optional.
 
-## Step 4 — Build one self-contained HTML file
+## Step 5 — What goes on the page
 
 One `index.html`. Fonts inlined as base64, no CDN, no build step — it has to open on a bad
 connection in a parking lot.
@@ -98,12 +119,12 @@ A collapsible sidebar (drawer under 1120px, fixed above it) is what makes it usa
 phone. Match the subject's own palette — dark and gold for dragons — so it feels made, not
 generated.
 
-## Step 5 — Make it installable
+## Step 6 — Make it installable
 
 `manifest.webmanifest` plus 192/512 icons and an apple-touch-icon. Being able to add it to
 the home screen is most of why it gets used on the day.
 
-## Step 6 — Deploy
+## Step 7 — Deploy again
 
 ```
 cd <project> && npx vercel deploy --prod --yes --scope lwhela12s-projects
@@ -113,7 +134,7 @@ The `--scope` flag is mandatory; there is no global `vercel` on this machine. Us
 `vercel domains add`, never `vercel alias set` — alias set puts the page behind a Vercel
 login. `curl` the live URL after deploying.
 
-## Step 7 — Footer, and the honest bit
+## Step 8 — Footer, and the honest bit
 
 Footer carries the Saved You a Seat plug and copyright. If the subject leans on someone's
 IP — a novel, a franchise — say so plainly: unofficial fan-made study aid, not affiliated
@@ -121,7 +142,7 @@ with the author or publisher. Also say where the facts came from and where the f
 disagrees. It costs two sentences and it is the difference between a study aid and a
 knock-off.
 
-## Step 8 — Walk it before calling it done
+## Step 9 — Walk it before calling it done
 
 Open the deployed URL yourself. Click the notebook link. Play the audio. Take the quiz.
 Shoot it at 1280, 768 and 390 before saying the UI is done. Then hand over the link.
