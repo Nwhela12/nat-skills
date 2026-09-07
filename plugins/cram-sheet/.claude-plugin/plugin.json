@@ -1,0 +1,6 @@
+{
+  "name": "cram-sheet",
+  "description": "Build a single-page study guide for something you have to know cold by a deadline -- a trivia night, a certification, a new job's org chart. Sources in, a phone-ready page out.",
+  "version": "1.0.0",
+  "author": { "name": "Nat Walstead" }
+}

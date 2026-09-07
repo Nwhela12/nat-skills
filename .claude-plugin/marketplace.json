@@ -1,0 +1,7 @@
+{
+  "name": "nat-skills",
+  "owner": { "name": "Nat Walstead" },
+  "plugins": [
+    { "source": "./plugins/cram-sheet" }
+  ]
+}
